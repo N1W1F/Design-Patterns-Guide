@@ -1,0 +1,48 @@
+/* ============================================================
+   Performance — reduce heavy effects that hurt rendering
+   ============================================================ */
+
+/* Pause aurora when not visible / scrolled past hero */
+body::before {
+  animation-duration: 30s !important;
+  will-change: auto;
+}
+
+/* Reduce noise overlay opacity */
+body::after {
+  opacity: 0.02 !important;
+}
+
+/* Limit backdrop-filter use — only on key elements */
+.card:not(.dd-section):not(.task-card):not(.qref-card),
+.intro-card,
+.dd-section,
+.identifier-input-card,
+.pitfall-card,
+.feedback,
+.quiz-container {
+  backdrop-filter: none !important;
+  background: rgba(11, 11, 34, 0.6);
+}
+[data-theme="light"] .card:not(.dd-section):not(.task-card):not(.qref-card),
+[data-theme="light"] .intro-card,
+[data-theme="light"] .dd-section,
+[data-theme="light"] .identifier-input-card,
+[data-theme="light"] .pitfall-card,
+[data-theme="light"] .feedback,
+[data-theme="light"] .quiz-container {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+/* Reduce particle effect intensity */
+#fx-particles { opacity: 0.2 !important; }
+
+/* Smaller spotlight */
+#fx-spotlight {
+  width: 400px !important;
+  height: 400px !important;
+  opacity: 0.3 !important;
+}
+
+/* Disable animated grad-flow on too many elements */
+.scroll-progress-fill { animation: none !important; }
